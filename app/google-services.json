@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "206735209171",
+    "firebase_url": "https://mo-mart-notification.firebaseio.com",
+    "project_id": "mo-mart-notification",
+    "storage_bucket": "mo-mart-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206735209171:android:6d039c6e8bc36fcb",
+        "android_client_info": {
+          "package_name": "com.example.hp.aswaq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206735209171-frj6oandc6o7rb4pvudsmrdetk7a11pa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hp.aswaq",
+            "certificate_hash": "ec009a740c7bc18a1fbd59359d6497cc53b723bd"
+          }
+        },
+        {
+          "client_id": "206735209171-rfidrcs730hdr7vl5oqlagsif6jui4jo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKCe6q4Dzwi5UALSFgOIltXkoeChRwXQw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206735209171-rfidrcs730hdr7vl5oqlagsif6jui4jo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

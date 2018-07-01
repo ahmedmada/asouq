@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/main_swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+
+
+                tools:context="com.codinginflow.picassoimagesliderexample.MainActivity">
+
+            </android.support.v4.view.ViewPager>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+
+                <ImageView
+                    android:id="@+id/bestoffer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/fo" />
+
+                <TextView
+                    android:id="@+id/bestTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+
+                    android:layout_marginBottom="22dp"
+
+                    android:background="#e0f2fb"
+                    android:gravity="center"
+                    android:hint="kkkkkkk"
+                    android:textColor="#0f597d  "
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+            <com.example.hp.aswaq.ExpandableHeightGridView
+                android:id="@+id/myId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:isScrollContainer="false"
+                android:numColumns="auto_fit"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:stretchMode="columnWidth"
+                />
+
+
+            <!--
+                           <GridView
+                               android:id="@+id/grid"
+                               android:nestedScrollingEnabled="true"
+                               android:layout_marginTop="10dp"
+                               android:layout_gravity="center"
+                               android:gravity="center"
+                               android:layout_width="match_parent"
+                               android:layout_height="500dp"
+                               android:numColumns="2" />
+                               -->
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>
