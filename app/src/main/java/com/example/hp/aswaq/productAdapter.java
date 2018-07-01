@@ -179,25 +179,55 @@ public class productAdapter extends BaseAdapter
         }
         final TextView titleTextView = holder.count;
 
+        sharedpreferences = context.getSharedPreferences("prefs name", Context.MODE_PRIVATE);
+        if (sharedpreferences.contains("value"+i))
+        {
+
+            Log.e("v", sharedpreferences.getString("value"+i, ""));
+
+            titleTextView.setText(sharedpreferences.getString("value"+i, ""));
+
+
+        }else{
+            holder.count.setText(String.valueOf(quantity));
+            // titleTextView.setText(String.valueOf(1));
+        }
+
+        holder.total.setText(String.valueOf(tota));
+//        if(Pstock.get(i).equals("0")){
+//           // holder.sold.setVisibility(View.VISIBLE);
+//            holder.cart.setVisibility(View.INVISIBLE);
+//            holder.notify.setVisibility(View.VISIBLE);
+//
+//        }
+
+        final productAdapter.ViewHolder finalHolder1 = holder;
+        final productAdapter.ViewHolder finalHolder3 = holder;
+        userDbHelper=new UserDbHelper(context);
+        sqLiteDatabase=userDbHelper.getWritableDatabase();
+
+        final ViewHolder finalHolder2 = holder;
+        final ViewHolder finalHolder5 = holder;
+
+        
         for (int j = 0 ; j < cardModels.size() ; j++){
+            Log.v("xxxxxx",Integer.parseInt(id.get(i))+" >>ID");
+            Log.v("xxxxxx",cardModels.get(j).getId()+" >>CardID");
             if (Integer.parseInt(id.get(i)) == cardModels.get(j).getId()){
-                holder.count.setText(cardModels.get(j).getCount());
+                holder.count.setText(cardModels.get(j).getCount()+"");
+
+                finalHolder2.linearLayout.setVisibility(View.VISIBLE);
+                finalHolder5.cart.setVisibility(View.INVISIBLE);
+                finalHolder1.total.setText(String.valueOf(tota));
+
+            }else {
+                finalHolder2.linearLayout.setVisibility(View.INVISIBLE);
+                finalHolder5.cart.setVisibility(View.VISIBLE);
+
             }
         }
 
-//        sharedpreferences = context.getSharedPreferences("prefs name", Context.MODE_PRIVATE);
-//        if (sharedpreferences.contains("value"+i))
-//        {
-//
-//            Log.e("v", sharedpreferences.getString("value"+i, ""));
-//
-//            titleTextView.setText(sharedpreferences.getString("value"+i, ""));
-//
-//
-//        }else{
-//            holder.count.setText(String.valueOf(quantity));
-//           // titleTextView.setText(String.valueOf(1));
-//        }
+
 
 
 //
@@ -225,23 +255,17 @@ public class productAdapter extends BaseAdapter
         holder.Csale.setText(sale.get(i));
         holder. Csale.setPaintFlags(holder.Csale.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
         final productAdapter.ViewHolder finalHolder = holder;
-        quantity=Integer.parseInt(titleTextView.getText().toString());
-        tota = Float.parseFloat(titleTextView.getText().toString()) * Float.parseFloat(price.get(i));
-        holder.total.setText(String.valueOf(tota));
-//        if(Pstock.get(i).equals("0")){
-//           // holder.sold.setVisibility(View.VISIBLE);
-//            holder.cart.setVisibility(View.INVISIBLE);
-//            holder.notify.setVisibility(View.VISIBLE);
-//
-//        }
 
-        final productAdapter.ViewHolder finalHolder1 = holder;
-        final productAdapter.ViewHolder finalHolder3 = holder;
-        userDbHelper=new UserDbHelper(context);
-        sqLiteDatabase=userDbHelper.getWritableDatabase();
-
-        final ViewHolder finalHolder2 = holder;
-        final ViewHolder finalHolder5 = holder;
+        try{
+            quantity=Integer.parseInt(titleTextView.getText().toString());
+        }catch (Exception e){
+            quantity = 0;
+        }
+        try{
+            tota = Float.parseFloat(titleTextView.getText().toString()) * Float.parseFloat(price.get(i));
+        }catch (Exception e){
+            tota = 0;
+        }
         holder.notify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
